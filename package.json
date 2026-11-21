@@ -1,0 +1,9 @@
+{
+  "name": "hue-harmony-live",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tiny shared party screen with one organizer, Render and PostgreSQL",
+  "engines": {"node": ">=20"},
+  "scripts": {"start": "node server.js", "test": "node --test"},
+  "dependencies": {"pg": "^8.13.1"}
+}
