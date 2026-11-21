@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#130b2d">
+  <meta name="robots" content="noindex,nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'self'">
+  <title>Admin · Hue & Harmony LIVE</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="config.js"></script>
+  <script defer src="admin.js"></script>
+</head>
+<body class="admin">
+  <div class="app-shell admin-shell">
+    <header class="admin-header">
+      <div class="admin-brand"><span class="brand-icon" aria-hidden="true">✳</span><span>HUE & HARMONY<br><span class="admin-overline">LIVE CONTROL ROOM</span></span></div>
+      <a href="./" class="muted">View public page ↗</a>
+    </header>
+
+    <div id="setup" class="setup-banner" hidden>The organizer panel must be opened at the Render service URL, not from GitHub Pages.</div>
+
+    <section id="login-panel" class="admin-card">
+      <div class="admin-overline">ORGANIZER ACCESS</div>
+      <h1>Welcome back.</h1>
+      <p class="admin-intro">Only the authorized organizer can change the live display.</p>
+      <form id="login-form">
+        <div class="field"><label for="login-email">Email</label><input id="login-email" type="email" autocomplete="username" required placeholder="organizer@example.com"></div>
+        <div class="field"><label for="login-password">Password</label><input id="login-password" type="password" autocomplete="current-password" required minlength="12" placeholder="Organizer password"></div>
+        <button id="login-button" class="btn btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+      <p id="login-message" class="admin-message" role="status" hidden></p>
+    </section>
+
+    <section id="editor-panel" hidden>
+      <div class="admin-header"><div><div class="admin-overline">YOU'RE IN CONTROL</div><h1>What's happening now?</h1></div><button id="logout" type="button" class="btn btn-secondary">Log out</button></div>
+      <div class="admin-grid">
+        <div class="admin-card">
+          <div class="field"><label for="preset">Quick activity templates</label><select id="preset"><option value="">Choose an activity…</option></select></div>
+          <hr class="admin-divider">
+          <form id="publish-form">
+            <div class="field"><label for="segment">Small heading</label><input id="segment" maxlength="40" required placeholder="GAME 04 · NOW PLAYING"></div>
+            <div class="field"><label for="title">Main title</label><input id="title" maxlength="90" required placeholder="THE WHISPER CHALLENGE"></div>
+            <div class="field"><label for="description">What the audience should know</label><textarea id="description" maxlength="240" required placeholder="Three teams of five race to decode the message."></textarea></div>
+            <div class="field"><label for="note">Call to action (optional)</label><input id="note" maxlength="150" placeholder="Contestants, please come to the stage!"></div>
+            <div class="admin-grid">
+              <div class="field"><label for="badge">Top label</label><input id="badge" maxlength="28" required placeholder="NOW HAPPENING"></div>
+              <div class="field"><label for="tone">Scene type</label><select id="tone"><option value="game">Game</option><option value="welcome">Welcome</option><option value="notice">Announcement</option><option value="break">Break</option><option value="award">Award</option></select></div>
+            </div>
+            <button id="publish-button" class="btn btn-primary btn-block" type="submit">✦ Publish to everyone's screen</button>
+          </form>
+          <p id="publish-message" class="admin-message" role="status" hidden></p>
+        </div>
+        <div>
+          <div class="admin-card">
+            <h2>Preview</h2>
+            <div class="preview-card" aria-live="polite">
+              <div id="pv-badge" class="preview-badge">NOW HAPPENING</div>
+              <div id="pv-segment" class="preview-eyebrow">GAME 04</div>
+              <div id="pv-title" class="preview-title">THE WHISPER CHALLENGE</div>
+              <div id="pv-description" class="preview-description">The game description appears here.</div>
+              <div id="pv-note" class="preview-note">Participants, please come forward.</div>
+            </div>
+            <h2 class="admin-preview-subhead">Live activity</h2>
+            <div id="live-status" class="admin-status">Checking published activity…</div>
+            <p id="live-name" class="muted">—</p>
+            <div class="btn-row"><button type="button" class="btn btn-secondary" id="reload-live">↻ Reload current</button><button type="button" class="btn btn-secondary" id="load-live">Load into editor</button></div>
+          </div>
+        </div>
+      </div>
+      <p class="fine-print">Changes appear on audience phones when they refresh. The public page cannot edit anything.</p>
+    </section>
+  </div>
+</body>
+</html>
