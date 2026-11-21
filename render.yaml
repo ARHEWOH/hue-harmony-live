@@ -1,0 +1,28 @@
+# One tiny API/admin web service and one PostgreSQL database.
+# IMPORTANT: the free PostgreSQL database expires after 30 days.
+services:
+  - type: web
+    name: hue-harmony-live
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: hue-harmony-db
+          property: connectionString
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+
+databases:
+  - name: hue-harmony-db
+    plan: free
+    region: frankfurt
+    databaseName: hue_harmony
+    user: hue_organizer
