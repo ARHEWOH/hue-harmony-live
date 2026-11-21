@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#250a85">
+  <meta name="description" content="Hue & Harmony LIVE — one shared screen for what's happening at the party.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self' https:; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'none'">
+  <title>Hue & Harmony · LIVE</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="config.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body class="audience">
+  <div class="grainless-glow" aria-hidden="true"></div>
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
+  <div class="app-shell audience-shell">
+    <header class="masthead">
+      <div class="presenters"><span class="small-star" aria-hidden="true">✳</span> VALENTIS <span class="presenter-cross">×</span> ALTUS</div>
+      <div class="live-tag"><span class="live-dot"></span><span>LIVE</span></div>
+    </header>
+
+    <div class="wordmark" aria-label="Hue and Harmony">
+      <span class="wordmark-upper">HUE <span class="amp">&</span></span>
+      <span class="wordmark-lower">HARMONY</span>
+      <span class="wordmark-caption">ALL SHADES OF US</span>
+    </div>
+
+    <main id="current-activity" class="main-stage" aria-live="polite" aria-atomic="true">
+      <div class="stage-label"><span class="stage-pip"></span><span id="scene-label">THE CELEBRATION</span></div>
+      <p id="scene-segment" class="scene-segment">WELCOME TO</p>
+      <h1 id="scene-title">HUE & HARMONY</h1>
+      <p id="scene-description" class="scene-description">A celebration of every shade that makes us who we are.</p>
+      <div id="scene-note-wrap" class="scene-note"><span class="note-icon" aria-hidden="true">✦</span><span id="scene-note">Stay close. The next activity is coming up!</span></div>
+    </main>
+
+    <footer class="footer-bar">
+      <div class="footer-venue">BOTANICAL GARDEN <span aria-hidden="true">·</span> UI</div>
+      <div class="footer-status"><span id="connection-dot" class="connection-dot"></span><span id="status-text" role="status">Loading latest update…</span></div>
+      <div class="footer-hint">↻ Refresh your browser to see the latest activity</div>
+    </footer>
+  </div>
+</body>
+</html>
